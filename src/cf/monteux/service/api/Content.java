@@ -1,12 +1,12 @@
 package cf.monteux.service.api;
 
+import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -23,7 +23,10 @@ public class Content {
 		
 		log.log(Level.INFO, "Input: "+input);
 		
-		return Response.status(200).entity("<html><title>test</title><body>test</body></html>").build();
+		java.nio.file.Path currentRelativePath = Paths.get("");
+		String s = currentRelativePath.toAbsolutePath().toString();
+		
+		return Response.status(200).entity("<html><title>test</title><body>"+s+"</body></html>").build();
 		
 	}
 }
