@@ -1,3 +1,6 @@
+# Builds
+target/
+
 # Compiled class file
 *.class
 
