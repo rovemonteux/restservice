@@ -11,7 +11,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/content")
+/*
+Presents documentation on the API usage.
+*/
+@Path("/")
 public class Content {
 
 	private static final Logger log = Logger.getLogger(Content.class.getName());
@@ -19,14 +22,9 @@ public class Content {
 	@GET
 	@Consumes(MediaType.TEXT_PLAIN)
 	@Produces(MediaType.TEXT_HTML)
-	public Response xmlToJson(String input) {
+	public Response documentation(String input) {
 		
-		log.log(Level.INFO, "Input: "+input);
-		
-		java.nio.file.Path currentRelativePath = Paths.get("");
-		String s = currentRelativePath.toAbsolutePath().toString();
-		
-		return Response.status(200).entity("<html><title>test</title><body>"+s+"</body></html>").build();
+		return Response.status(200).entity("<html><title>Rove Monteux's API - api.monteux.cf</title><body><h1>Rove Monteux's API - api.monteux.cf</h1><h2>Available APIs:</h2><br/><b>JSON to XML</b>: <a href=\"/jsontoxml\">jsontoxml</a><br/><b>XML to JSON</b>: <a href=\"xmltojson\">xmltojson</a></body></html>").build();
 		
 	}
 }
